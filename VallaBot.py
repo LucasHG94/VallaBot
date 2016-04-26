@@ -15,7 +15,7 @@ bot=None
 def hello():
     # print request.data #int(request.data["message"]["chat"]["id"]) 23709664
     #telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=request.data)
-    update = telegram.Update.de_json(request.get_json(force=True))
+    #update = telegram.Update.de_json(request.get_json(force=True))
     #chat_id = update.message.chat.id
     telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text='chat_id')
     #telegram.Bot(TOKEN).sendMessage(chat_id=chat_id, text="La temperatura es: "+str(tiempo()))
