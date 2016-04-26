@@ -12,6 +12,7 @@ bot=None
 @app.route("/mensaje")
 def hello():
     print request.data
+    bot.sendMessage(chat_id=request.data.message.from.id, text="rehola")
     return 'hola'
 
 def telebot():
@@ -24,5 +25,5 @@ def telebot():
 
 if __name__=="__main__":
     print("empiezo")
-    app.run(host='0.0.0.0',debug=True,port=int(os.environ.get("PORT",5000)))
     telebot()
+    app.run(host='0.0.0.0',debug=True,port=int(os.environ.get("PORT",5000)))
