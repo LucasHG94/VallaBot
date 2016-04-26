@@ -18,7 +18,7 @@ def hello():
 
     #update = telegram.Update.de_json(request.get_json(force=True))
     #chat_id = update.message.chat.id
-    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text="La temperatura es: "+str(tiempo()))
+    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text="La temperatura es: "+tiempo())
     #telegram.Bot(TOKEN).sendMessage(chat_id=chat_id, text="La temperatura es: "+str(tiempo()))
     return "Hola"
 
@@ -33,7 +33,7 @@ def tiempo():
     opener = urllib2.build_opener()
     f = opener.open(req)
     json = json.loads(f.read())
-    return json["currently"]["temperature"]
+    return str(json["currently"]["temperature"])
 
 if __name__=="__main__":
     print("empiezo")
