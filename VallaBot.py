@@ -6,18 +6,17 @@ import logging
 import os
 from flask import Flask, request
 app = Flask(__name__)
-
+TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
 bot=None
 
 @app.route("/mensaje")
 def hello():
     print request.data
-    bot.sendMessage(chat_id=request.data["message"]["chat"]["id"], text="rehola")
+    telegram.Bot(TOKEN).sendMessage(chat_id=request.data["message"]["chat"]["id"], text="rehola")
     return 'hola'
 
 def telebot():
     print("voy a crear el bot")
-    TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
     bot = telegram.Bot(TOKEN)
     bot.setWebhook('https://vallbot.herokuapp.com/mensaje')
     print("bot creado")
