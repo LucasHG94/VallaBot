@@ -13,11 +13,14 @@ def hello():
 
 
 def telebot():
+    print("voy a crear el bot")
     TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
     bot = telegram.Bot(TOKEN)
     bot.setWebhook('https://vallbot.herokuapp.com/mensaje')
+    print("bot creado")
 
 
 if __name__=="__main__":
-    app.run(port=33507)
+    print("empiezo")
+    app.run(debug=True,port=int(os.environ.get("PORT",5000)))
     telebot()
