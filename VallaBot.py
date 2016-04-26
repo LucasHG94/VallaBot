@@ -3,7 +3,19 @@
 import json
 import telegram
 import logging
+from flask import Flask
 
-TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
+@app.route("/mensaje")
+def hello():
+    print request.data
+    return "Hello World!"
 
-#bot.setWebhook('https://api.tekegram.org/bot/'+TOKEN+'/')
+if __name__=="__main__":
+    app.run()
+    telebot()
+
+
+def telebot():
+    TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
+    bot = telegram.Bot(TOKEN)
+    bot.setWebhook('https://vallbot.herokuapp.com/mensaje')
