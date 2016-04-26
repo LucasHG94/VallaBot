@@ -12,7 +12,7 @@ bot=None
 @app.route("/mensaje")
 def hello():
     print request.data
-    bot.sendMessage(chat_id=request.data.message.from.id, text="rehola")
+    bot.sendMessage(chat_id=request.data["message"]["chat"]["id"], text="rehola")
     return 'hola'
 
 def telebot():
