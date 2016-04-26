@@ -4,16 +4,14 @@ import json
 import telegram
 import logging
 import os
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
+
+bot=None
 
 @app.route("/mensaje")
 def hello():
     print request.data
-    return "Hello World!"
-
-
-
 
 def telebot():
     print("voy a crear el bot")
