@@ -14,7 +14,7 @@ bot=None
 @app.route("/mensaje")
 def hello():
     print request.data #int(request.data["message"]["chat"]["id"])
-    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=int(request.data)
+    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=request.data)
     telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text="La temperatura es: "+str(tiempo()))
     return request.data
 
