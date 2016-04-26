@@ -4,6 +4,8 @@ import json
 import telegram
 import logging
 import os
+import urllib2
+import json
 from flask import Flask, request
 app = Flask(__name__)
 TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
@@ -12,7 +14,7 @@ bot=None
 @app.route("/mensaje")
 def hello():
     print request.data
-    telegram.Bot(TOKEN).sendMessage(chat_id=request.data["message"]["chat"]["id"], text="rehola")
+    telegram.Bot(TOKEN).sendMessage(chat_id=request.data["message"]["chat"]["id"], text="La temperatura es: "+str(tiempo))
     return request.data
 
 def telebot():
@@ -21,6 +23,12 @@ def telebot():
     bot.setWebhook('https://vallbot.herokuapp.com/mensaje')
     print("bot creado")
 
+def tiempo():
+    req = urllib2.Request("https://api.forecast.io/forecast/bc81c2ffb5df746f4ad745932d67c536/41.651981,%20-4.728561?units=si")
+    opener = urllib2.build_opener()
+    f = opener.open(req)
+    json = json.loads(f.read())
+    return json["currently"]["temperature"]
 
 if __name__=="__main__":
     print("empiezo")
