@@ -12,6 +12,7 @@ bot=None
 @app.route("/mensaje")
 def hello():
     print request.data
+    return 'hola'
 
 def telebot():
     print("voy a crear el bot")
