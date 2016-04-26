@@ -1,1 +1,1 @@
-web: python VallaBot.py
+web: python -u VallaBot.py
