@@ -32,8 +32,8 @@ def tiempo():
     req = urllib2.Request("https://api.forecast.io/forecast/bc81c2ffb5df746f4ad745932d67c536/41.651981,%20-4.728561?units=si")
     opener = urllib2.build_opener()
     f = opener.open(req)
-    json = json.loads(f.read())
-    return str(json["currently"]["temperature"])
+    j = json.loads(f.read())
+    return str(j["currently"]["temperature"])
 
 if __name__=="__main__":
     print("empiezo")
