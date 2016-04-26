@@ -11,15 +11,16 @@ app = Flask(__name__)
 TOKEN = '206483377:AAHnQ_ohMuvDhI5mfbDMrHKTnTGIi7YhT6A' # Ponemos nuestro Token generado con el @BotFather
 bot=None
 
-@app.route("/mensaje")
+@app.route("/mensaje",methods=['POST'])
 def hello():
-    # print request.data #int(request.data["message"]["chat"]["id"]) 23709664
-    #telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=request.data)
+    if request.method == "POST":
+        # print request.data #int(request.data["message"]["chat"]["id"]) 23709664
+        #telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=request.data)
 
-    #update = telegram.Update.de_json(request.get_json(force=True))
-    #chat_id = update.message.chat.id
-    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=tiempo())
-    #telegram.Bot(TOKEN).sendMessage(chat_id=chat_id, text="La temperatura es: "+str(tiempo()))
+        #update = telegram.Update.de_json(request.get_json(force=True))
+        #chat_id = update.message.chat.id
+        telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text="La teperatura es: "+tiempo())
+        #telegram.Bot(TOKEN).sendMessage(chat_id=chat_id, text="La temperatura es: "+str(tiempo()))
     return "Hola"
 
 def telebot():
