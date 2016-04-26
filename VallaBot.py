@@ -16,11 +16,9 @@ def hello():
     # print request.data #int(request.data["message"]["chat"]["id"]) 23709664
     #telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=request.data)
     update = telegram.Update.de_json(request.get_json(force=True))
-    chat_id = update.message.chat.id
-    # Telegram understands UTF-8, so encode text for unicode compatibility
-    text = update.message.text.encode('utf-8')
-    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text=chat_id)
-    telegram.Bot(TOKEN).sendMessage(chat_id=chat_id, text="La temperatura es: "+str(tiempo()))
+    #chat_id = update.message.chat.id
+    telegram.Bot(TOKEN).sendMessage(chat_id=23709664, text='chat_id')
+    #telegram.Bot(TOKEN).sendMessage(chat_id=chat_id, text="La temperatura es: "+str(tiempo()))
     return "Hola"
 
 def telebot():
