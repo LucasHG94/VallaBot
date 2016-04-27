@@ -34,7 +34,7 @@ def tiempo():
     opener = urllib2.build_opener()
     f = opener.open(req)
     j = json.loads(f.read())
-    return "Temperatura actual: "+ str(j["currently"]["temperature"])+"ºC\n Máxima: "+ str(j["daily"]["summary"])
+    return "Temperatura actual: "+ str(j["currently"]["temperature"])+"ºC\n Máxima: "
 
 if __name__=="__main__":
     print("empiezo")
