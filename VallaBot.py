@@ -37,9 +37,7 @@ def tiempo():
     return "Actual: "+ str(j["currently"]["temperature"])+"ºC, "\
         +str(j["currently"]["summary"])+" \nMáxima: "\
         +str(j["daily"]["data"][0]["temperatureMax"])+"ºC\nMínima: "\
-        +str(j["daily"]["data"][0]["temperatureMin"])+"ºC\Pronóstico: "\
-        +str(j["daily"]["summary"])
-
+        +str(j["daily"]["data"][0]["temperatureMin"])+"ºC"
 if __name__=="__main__":
     print("empiezo")
     telebot()
