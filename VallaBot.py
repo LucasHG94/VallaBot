@@ -35,9 +35,9 @@ def tiempo():
     f = opener.open(req)
     j = json.loads(f.read())
     return "Actual: "+ str(j["currently"]["temperature"])+"ºC, "\
-        +str(j["currently"]["summary"])#+" \nMáxima: "\
-        #+str(j["daily"]["data"][0]["temperatureMax"])+"ºC\nMínima: "\
-        #+str(j["daily"]["data"][0]["temperatureMin"])+"ºC\nResumen: "\
+        +str(j["currently"]["summary"])+" \nMáxima: "\
+        +str(j["daily"]["data"][0]["temperatureMax"])+"ºC\nMínima: "\
+        +str(j["daily"]["data"][0]["temperatureMin"])+"ºC\nResumen: "#\
         #+str(j["daily"]["summary"])
 
 if __name__=="__main__":
